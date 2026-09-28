@@ -1,0 +1,13 @@
+[project]
+name = "mqttlog"
+version = "0.1.0"
+description = "Replay, simulate, and rotate MQTT-style topic logs"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+[project.scripts]
+mqttlog = "mqttlog.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mqttlog*"]
