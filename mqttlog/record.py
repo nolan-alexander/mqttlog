@@ -24,3 +24,23 @@ def parse_line(line: str) -> Record | None:
     if not match:
         raise ValueError(f"bad record: {line!r}")
     return Record(match.group(1), match.group(2), match.group(3))
+
+
+def topic_match(topic: str, pattern: str) -> bool:
+    if pattern == "#":
+        return True
+    t_parts = topic.split("/")
+    p_parts = pattern.split("/")
+    ti = 0
+    for i, part in enumerate(p_parts):
+        if part == "#":
+            return i == len(p_parts) - 1
+        if ti >= len(t_parts):
+            return False
+        if part == "+":
+            ti += 1
+            continue
+        if part != t_parts[ti]:
+            return False
+        ti += 1
+    return ti == len(t_parts)
