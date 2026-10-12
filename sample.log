@@ -1,0 +1,5 @@
+# bench dump 2026-10-13
+2026-10-13T20:11:00-07:00 sensors/lab/temp 20.0
+2026-10-13T20:11:15-07:00 sensors/lab/rh 41
+2026-10-13T20:11:30-07:00 sensors/door/state closed
+2026-10-13T20:11:45-07:00 actuators/fan on
