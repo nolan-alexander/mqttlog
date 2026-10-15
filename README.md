@@ -44,6 +44,8 @@ ts,topic,payload
 
 `+` is one topic level. `#` is the rest of the path, MQTT-style.
 
+Sample dump: [lab-2026-10-13.log](https://gist.github.com/nolan-alexander/f4c0c24e2268719196141bcfadd2ea31). One-off `sensors/#` filter without the CLI: [filter_sensors.py](https://gist.github.com/nolan-alexander/362209c525a3f4e943b50d78419c41df).
+
 ## Tests
 
 ```
