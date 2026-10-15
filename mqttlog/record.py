@@ -44,3 +44,12 @@ def topic_match(topic: str, pattern: str) -> bool:
             return False
         ti += 1
     return ti == len(t_parts)
+
+
+def parse_lines(text: str) -> list[Record]:
+    rows: list[Record] = []
+    for line in text.splitlines():
+        rec = parse_line(line)
+        if rec is not None:
+            rows.append(rec)
+    return rows

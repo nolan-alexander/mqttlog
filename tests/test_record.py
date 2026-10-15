@@ -1,6 +1,6 @@
 import unittest
 
-from mqttlog.record import parse_line, topic_match
+from mqttlog.record import parse_line, parse_lines, topic_match
 
 
 class RecordTests(unittest.TestCase):
@@ -25,6 +25,11 @@ class RecordTests(unittest.TestCase):
     def test_plus_filter(self) -> None:
         self.assertTrue(topic_match("sensors/lab", "sensors/+"))
         self.assertFalse(topic_match("sensors/lab/temp", "sensors/+"))
+
+    def test_parse_lines(self) -> None:
+        rows = parse_lines("# c\n2026-10-01T20:11:03-07:00 sensors/lab/temp 21.4\n")
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0].payload, "21.4")
 
 
 if __name__ == "__main__":
